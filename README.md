@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/activerecord_accessible_json.svg)](https://badge.fury.io/rb/activerecord_accessible_json)
+
 # ActiveRecord Accessible Json
 
 Using this gem, ActiveRecord JSON typed attribute is deserialized into HashWithIndifferentAccess if possible.
