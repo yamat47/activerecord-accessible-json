@@ -1,0 +1,58 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby: [ '2.3', '2.4', '2.5', '2.6', '2.7', '3.0' ]
+        rails: [ '5_2', '6_0', '6_1' ]
+        exclude:
+          # Rails 6.0+ requires Ruby 2.5+
+          - ruby:  '2.3'
+            rails: '6_0'
+          - ruby:  '2.4'
+            rails: '6_0'
+          - ruby:  '2.3'
+            rails: '6_1'
+          - ruby:  '2.4'
+            rails: '6_1'
+
+          # Rails 5.x doesn't work on Ruby 3.0+
+          - ruby:  '3.0'
+            rails: '5_2'
+
+    name: Ruby ${{ matrix.ruby }} / Rails ${{ matrix.rails }}
+
+    env:
+      BUNDLE_GEMFILE: gemfiles/rails_${{ matrix.rails }}.gemfile
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Cache bundler directory
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-${{ matrix.ruby }}-gem-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-${{ matrix.ruby }}-gem-
+    - name: Install dependencies
+      run: |
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: Prepare database
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:test:prepare
+      working-directory: ./spec/dummy
+      env:
+        BUNDLE_GEMFILE: ../../gemfiles/rails_${{ matrix.rails }}.gemfile
+    - name: Run RSpec
+      run: bundle exec rspec
