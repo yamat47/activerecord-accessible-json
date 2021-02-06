@@ -1,6 +1,11 @@
 name: Build
 
-on: push
+on:
+  push:
+
+  # schedule on every day at 8:00 AM JST.
+  schedule:
+    - cron: '0 23 * * *'
 
 jobs:
   build:
@@ -8,8 +13,8 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [ '2.3', '2.4', '2.5', '2.6', '2.7', '3.0' ]
-        rails: [ '5_2', '6_0', '6_1' ]
+        ruby: [ '2.3', '2.4', '2.5', '2.6', '2.7', '3.0', 'head' ]
+        rails: [ '5_2', '6_0', '6_1', 'head' ]
         exclude:
           # Rails 6.0+ requires Ruby 2.5+
           - ruby:  '2.3'
@@ -21,8 +26,20 @@ jobs:
           - ruby:  '2.4'
             rails: '6_1'
 
+          # Rails 7.0+ requires Ruby 2.7+
+          - ruby:  '2.3'
+            rails: 'head'
+          - ruby:  '2.4'
+            rails: 'head'
+          - ruby:  '2.5'
+            rails: 'head'
+          - ruby:  '2.6'
+            rails: 'head'
+
           # Rails 5.x doesn't work on Ruby 3.0+
           - ruby:  '3.0'
+            rails: '5_2'
+          - ruby:  'head'
             rails: '5_2'
 
     name: Ruby ${{ matrix.ruby }} / Rails ${{ matrix.rails }}
