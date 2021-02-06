@@ -9,7 +9,7 @@ module ActiverecordAccessibleJson
 
       decoded_value = ActiveSupport::JSON.decode(value)
       decoded_value.respond_to?(:with_indifferent_access) ? decoded_value.with_indifferent_access : decoded_value
-    rescue
+    rescue StandardError
       nil
     end
   end
