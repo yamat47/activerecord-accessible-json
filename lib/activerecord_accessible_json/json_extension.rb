@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ActiverecordAccessibleJson
   module JsonExtension
     # This patch is strongly dependent with ActiveRecord::Type::Json implementation.
