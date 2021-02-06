@@ -1,0 +1,30 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - bin/**/*
+    - gemfiles/vendor/bundle/**/*
+
+# RuboCop requires Ruby 2.4+ but this gem supports 2.3.
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
+
+Style/NumericLiterals:
+  Exclude:
+    - spec/dummy/db/schema.rb

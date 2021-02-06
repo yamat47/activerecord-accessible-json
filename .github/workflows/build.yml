@@ -56,7 +56,7 @@ jobs:
     - name: Cache bundler directory
       uses: actions/cache@v1
       with:
-        path: vendor/bundle
+        path: gemfiles/vendor/bundle
         key: ${{ runner.os }}-${{ matrix.ruby }}-gem-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.ruby }}-gem-
@@ -64,6 +64,8 @@ jobs:
       run: |
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
+    - name: Run RuboCop
+      run: bundle exec rubocop -c .rubocop.yml
     - name: Prepare database
       run: |
         bundle exec rails db:create

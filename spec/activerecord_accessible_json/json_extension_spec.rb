@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ActiverecordAccessibleJson::JsonExtension, type: :model do
@@ -17,13 +19,13 @@ RSpec.describe ActiverecordAccessibleJson::JsonExtension, type: :model do
     specify 'correct value is saved' do
       expect(post.author[:name]).to eq name
       expect(post.author[:age]).to eq age
-      expect(post.tags).to contain_exactly *tags
+      expect(post.tags).to contain_exactly(*tags)
     end
   end
 
   let(:name) { 'yamat47' }
   let(:age) { 27 }
-  let(:tags) { %w(Rails TDD) }
+  let(:tags) { %w[Rails TDD] }
 
   context 'when record is loaded from database' do
     before do

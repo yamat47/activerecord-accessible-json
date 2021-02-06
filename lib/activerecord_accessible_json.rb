@@ -1,5 +1,4 @@
-require "activerecord_accessible_json/version"
-require "activerecord_accessible_json/railtie"
+# frozen_string_literal: true
 
-module ActiverecordAccessibleJson
-end
+require 'activerecord_accessible_json/version'
+require 'activerecord_accessible_json/railtie'
