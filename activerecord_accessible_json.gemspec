@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email       = ['yamat47.thirddown@gmail.com']
   spec.homepage    = 'https://github.com/yamat47/activerecord_accessible_json'
   spec.summary     = "Make ActiveRecord's JSON attribute more accessible."
-  spec.description = "Using this gem, ActiveRecord's JSON attribute is deserialized into not Hash but HashWithIndifferentAccess."
+  spec.description = "Using this gem, ActiveRecord's JSON attribute is deserialized into HashWithIndifferentAccess."
   spec.license     = 'MIT'
 
   spec.metadata['homepage_uri'] = spec.homepage
