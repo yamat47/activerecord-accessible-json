@@ -25,6 +25,20 @@ post.author['name'] == post.author[:name] #=> true
 post.tags.class #=> Array
 ```
 
+## Version Compatibility
+
+| | Rails 5.2 | Rails 6.0 | Rails 6.1 | Rails head |
+| :---: | :---: | :---: | :---: | :---: |
+| Ruby 2.3 | ✅ | ❌ | ❌ | ❌ |
+| Ruby 2.4 | ✅ | ❌ | ❌ | ❌ |
+| Ruby 2.5 | ✅ | ✅ | ✅ | ❌ |
+| Ruby 2.6 | ✅ | ✅ | ✅ | ❌ |
+| Ruby 2.7 | ✅ | ✅ | ✅ | ✅ |
+| Ruby 3.0 | ❌ | ✅ | ✅ | ✅ |
+| Ruby head | ❌ | ✅ | ✅ | ✅ |
+
+Version compatibility is checked everyday on [CI](https://github.com/yamat47/activerecord_accessible_json/actions).
+
 ## Installation
 
 Add this line to your Rails application's Gemfile:
