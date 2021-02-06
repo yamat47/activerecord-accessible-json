@@ -19,7 +19,7 @@ RSpec.describe ActiverecordAccessibleJson::JsonExtension, type: :model do
     specify 'correct value is saved' do
       expect(post.author[:name]).to eq name
       expect(post.author[:age]).to eq age
-      expect(post.tags).to contain_exactly *tags
+      expect(post.tags).to contain_exactly(*tags)
     end
   end
 
