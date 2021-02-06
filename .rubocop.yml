@@ -12,6 +12,9 @@ AllCops:
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
+Layout/LineLength:
+  Max: 120
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*_spec.rb
