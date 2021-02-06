@@ -25,7 +25,7 @@ RSpec.describe ActiverecordAccessibleJson::JsonExtension, type: :model do
 
   let(:name) { 'yamat47' }
   let(:age) { 27 }
-  let(:tags) { %w(Rails TDD) }
+  let(:tags) { %w[Rails TDD] }
 
   context 'when record is loaded from database' do
     before do
