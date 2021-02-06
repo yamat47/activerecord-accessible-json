@@ -5,10 +5,16 @@ require:
 AllCops:
   TargetRubyVersion: 2.4
 
-Style/NumericLiterals:
-  Exclude:
-    - spec/dummy/db/schema.rb
-
 # RuboCop requires Ruby 2.4+ but this gem supports 2.3.
 Gemspec/RequiredRubyVersion:
   Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
+
+Style/NumericLiterals:
+  Exclude:
+    - spec/dummy/db/schema.rb
