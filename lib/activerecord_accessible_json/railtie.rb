@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "activerecord_accessible_json/json_extension"
 
 module ActiverecordAccessibleJson

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative "lib/activerecord_accessible_json/version"
 
 Gem::Specification.new do |spec|
