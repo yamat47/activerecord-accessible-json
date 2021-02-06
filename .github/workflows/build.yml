@@ -56,7 +56,7 @@ jobs:
     - name: Cache bundler directory
       uses: actions/cache@v1
       with:
-        path: vendor/bundle
+        path: gemfiles/vendor/bundle
         key: ${{ runner.os }}-${{ matrix.ruby }}-gem-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.ruby }}-gem-
