@@ -13,24 +13,10 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [ '2.3', '2.4', '2.5', '2.6', '2.7', '3.0', 'head' ]
+        ruby: [ '2.5', '2.6', '2.7', '3.0', 'head' ]
         rails: [ '5_2', '6_0', '6_1', 'head' ]
         exclude:
-          # Rails 6.0+ requires Ruby 2.5+
-          - ruby:  '2.3'
-            rails: '6_0'
-          - ruby:  '2.4'
-            rails: '6_0'
-          - ruby:  '2.3'
-            rails: '6_1'
-          - ruby:  '2.4'
-            rails: '6_1'
-
           # Rails 7.0+ requires Ruby 2.7+
-          - ruby:  '2.3'
-            rails: 'head'
-          - ruby:  '2.4'
-            rails: 'head'
           - ruby:  '2.5'
             rails: 'head'
           - ruby:  '2.6'
