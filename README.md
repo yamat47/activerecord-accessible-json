@@ -29,8 +29,6 @@ post.tags.class #=> Array
 
 | | Rails 5.2 | Rails 6.0 | Rails 6.1 | Rails head |
 | :---: | :---: | :---: | :---: | :---: |
-| Ruby 2.3 | ✅ | ❌ | ❌ | ❌ |
-| Ruby 2.4 | ✅ | ❌ | ❌ | ❌ |
 | Ruby 2.5 | ✅ | ✅ | ✅ | ❌ |
 | Ruby 2.6 | ✅ | ✅ | ✅ | ❌ |
 | Ruby 2.7 | ✅ | ✅ | ✅ | ✅ |
