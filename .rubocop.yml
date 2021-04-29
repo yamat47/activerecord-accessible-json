@@ -8,10 +8,6 @@ AllCops:
     - bin/**/*
     - gemfiles/vendor/bundle/**/*
 
-# RuboCop requires Ruby 2.4+ but this gem supports 2.3.
-Gemspec/RequiredRubyVersion:
-  Enabled: false
-
 Layout/LineLength:
   Max: 120
 
