@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+# Specifying sources of rails gems to avoid to be found in multiple relevant sources.
+# see: https://bundler.io/man/gemfile.5.html#SOURCE-PRIORITY
+gem 'actioncable', github: 'rails/rails', branch: '6-1-stable'
+gem 'actionmailbox', github: 'rails/rails', branch: '6-1-stable'
+gem 'actionmailer', github: 'rails/rails', branch: '6-1-stable'
+gem 'actionpack', github: 'rails/rails', branch: '6-1-stable'
+gem 'actiontext', github: 'rails/rails', branch: '6-1-stable'
+gem 'actionview', github: 'rails/rails', branch: '6-1-stable'
+gem 'activejob', github: 'rails/rails', branch: '6-1-stable'
+gem 'activemodel', github: 'rails/rails', branch: '6-1-stable'
+gem 'activerecord', github: 'rails/rails', branch: '6-1-stable'
+gem 'activestorage', github: 'rails/rails', branch: '6-1-stable'
+gem 'activesupport', github: 'rails/rails', branch: '6-1-stable'
+gem 'rails', github: 'rails/rails', branch: '6-1-stable'
+gem 'railties', github: 'rails/rails', branch: '6-1-stable'
+
+# c.f. https://github.com/rails/rails/blob/v6.1.0/activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb#L13
+gem 'sqlite3', '~> 1.4'
+
+gemspec path: '../'

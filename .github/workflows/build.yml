@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         ruby: [ '2.5', '2.6', '2.7', '3.0', 'head' ]
-        rails: [ '5_2', '6_0', '6_1', 'head' ]
+        rails: [ '5_2', '6_0', '6_1', '6_1_stable', 'head' ]
         exclude:
           # Rails 7.0+ requires Ruby 2.7+
           - ruby:  '2.5'
@@ -27,6 +27,12 @@ jobs:
             rails: '5_2'
           - ruby:  'head'
             rails: '5_2'
+
+          # Ruby edge currently not support Rails 6.1-
+          - ruby: 'head'
+            rails: '6_0'
+          - ruby: 'head'
+            rails: '6_1'
 
     name: Ruby ${{ matrix.ruby }} / Rails ${{ matrix.rails }}
 
