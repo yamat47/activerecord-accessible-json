@@ -28,6 +28,12 @@ jobs:
           - ruby:  'head'
             rails: '5_2'
 
+          # Ruby edge currently not support Rails 6.1-
+          - ruby: 'head'
+            rails: '6_0'
+          - ruby: 'head'
+            rails: '6_1'
+
     name: Ruby ${{ matrix.ruby }} / Rails ${{ matrix.rails }}
 
     env:
