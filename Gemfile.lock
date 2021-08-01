@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activerecord_accessible_json (0.3.6)
+    activerecord_accessible_json (0.3.7)
       activerecord (>= 5.2.0)
 
 GEM
