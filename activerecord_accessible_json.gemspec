@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
 
   # Rails is listed 'gemfiles/rails_XXX.gemfile' on CI.
   spec.add_development_dependency 'rails' if ENV['BUNDLE_GEMFILE'].nil?
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
