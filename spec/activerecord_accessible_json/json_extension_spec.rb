@@ -45,7 +45,7 @@ RSpec.describe ActiverecordAccessibleJson::JsonExtension, type: :model do
   end
 
   context 'when record is initialized by ApplicationRecord.new with string keys' do
-    let(:post) { Post.new(author: { 'name': name, 'age': age }, tags: tags) }
+    let(:post) { Post.new(author: { name: name, age: age }, tags: tags) }
 
     it_behaves_like 'accessible JSON attributes'
     it_behaves_like 'serializable record'
