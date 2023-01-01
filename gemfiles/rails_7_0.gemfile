@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 7.0.2.2'
+gem 'rails', '~> 7.0.0'
 
 # https://github.com/rails/rails/blob/v7.0.2.2/activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb
 gem 'sqlite3', '~> 1.4'
