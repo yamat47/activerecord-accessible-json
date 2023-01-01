@@ -200,6 +200,7 @@ GEM
 PLATFORMS
   arm64-darwin-20
   arm64-darwin-21
+  arm64-darwin-22
   x86_64-darwin-20
 
 DEPENDENCIES
@@ -212,4 +213,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   2.2.15
+   2.4.1
