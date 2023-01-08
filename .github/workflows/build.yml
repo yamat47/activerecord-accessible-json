@@ -14,16 +14,8 @@ jobs:
     strategy:
       matrix:
         ruby: [ '2.7', '3.0', '3.1', 'head' ]
-        rails: [ '5_2', '6_0', '6_1', '7_0', 'head' ]
+        rails: [ '6_0', '6_1', '7_0', 'head' ]
         exclude:
-          # Rails 5.x doesn't work on Ruby 3.0+
-          - ruby:  '3.0'
-            rails: '5_2'
-          - ruby:  '3.1'
-            rails: '5_2'
-          - ruby:  'head'
-            rails: '5_2'
-
           # Rails 7- doesn't work on Ruby 3.1+
           - ruby:  '3.1'
             rails: '6_0'

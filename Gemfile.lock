@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     activerecord_accessible_json (0.3.8)
-      activerecord (>= 5.2.0)
+      activerecord (>= 6.0.0)
 
 GEM
   remote: https://rubygems.org/
