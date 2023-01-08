@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module ActiverecordAccessibleJson
-  VERSION = '0.3.8'
+  VERSION = '1.0.0'
 end
