@@ -18,16 +18,20 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
-  spec.add_dependency 'activerecord', '>= 5.2.0'
+  spec.add_dependency 'activerecord', '>= 6.0.0'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-rails'
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'sqlite3'
 
-  # Rails is listed 'gemfiles/rails_XXX.gemfile' on CI.
-  spec.add_development_dependency 'rails' if ENV['BUNDLE_GEMFILE'].nil?
+  # Rails is listed 'gemfiles/rails_XXX.gemfile' on version compatibility check.
+  bundle_gemfile = ENV.fetch('BUNDLE_GEMFILE', nil)
+  if bundle_gemfile.nil? || !bundle_gemfile.match?(%r{gemfiles/rails_.*\.gemfile})
+    spec.add_development_dependency 'rails'
+  end
+
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
