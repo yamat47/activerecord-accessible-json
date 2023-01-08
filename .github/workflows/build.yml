@@ -9,6 +9,29 @@ on:
 
 jobs:
   build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+          rubygems: latest
+      - name: Run RuboCop
+        run: bundle exec rubocop
+      - name: Prepare database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:test:prepare
+        working-directory: ./spec/dummy
+      - name: Run RSpec
+        run: bundle exec rspec
+
+  version_compatibility:
+    needs: build
     runs-on: ubuntu-latest
 
     strategy:
@@ -35,14 +58,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
         rubygems: latest
-    - name: Run RuboCop
-      run: bundle exec rubocop -c .rubocop.yml
     - name: Prepare database
       run: |
         bundle exec rails db:create

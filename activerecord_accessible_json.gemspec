@@ -27,7 +27,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'sqlite3'
 
-  # Rails is listed 'gemfiles/rails_XXX.gemfile' on CI.
-  spec.add_development_dependency 'rails' if ENV['BUNDLE_GEMFILE'].nil?
+  # Rails is listed 'gemfiles/rails_XXX.gemfile' on version compatibility check.
+  bundle_gemfile = ENV.fetch('BUNDLE_GEMFILE', nil)
+  if bundle_gemfile.nil? || !bundle_gemfile.match?(%r{gemfiles/rails_.*\.gemfile})
+    spec.add_development_dependency 'rails'
+  end
+
   spec.metadata['rubygems_mfa_required'] = 'true'
 end

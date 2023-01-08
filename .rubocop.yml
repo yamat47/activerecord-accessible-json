@@ -7,6 +7,7 @@ AllCops:
   TargetRubyVersion: 2.7
   Exclude:
     - bin/**/*
+    - vendor/bundle/**/*
     - gemfiles/vendor/bundle/**/*
 
 Layout/LineLength:
