@@ -13,19 +13,9 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [ '2.5', '2.6', '2.7', '3.0', '3.1', 'head' ]
+        ruby: [ '2.7', '3.0', '3.1', 'head' ]
         rails: [ '5_2', '6_0', '6_1', '7_0', 'head' ]
         exclude:
-          # Rails 7.0+ requires Ruby 2.7+
-          - ruby:  '2.5'
-            rails: '7_0'
-          - ruby:  '2.5'
-            rails: 'head'
-          - ruby:  '2.6'
-            rails: '7_0'
-          - ruby:  '2.6'
-            rails: 'head'
-
           # Rails 5.x doesn't work on Ruby 3.0+
           - ruby:  '3.0'
             rails: '5_2'
